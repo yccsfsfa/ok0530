@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: okdeef
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: okdeef
+  template:
+    metadata:
+      labels:
+        app: okdeef
+    spec:
+      containers:
+      - image: okteto.dev/okdeef:latest
+        name: okdeef
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: Vless_UUID
+          value: "639b58be-2e55-4da7-9e76-51b84306e573"
+        - name: Vless_Path
+          value: "/dece424"
+        - name: Vmess_UUID
+          value: "f9b9f287-9951-4a70-bf91-4cdf547f4642"
+        - name: Vmess_Path
+          value: "/fetd345"
+        - name: Share_Path
+          value: "/v2link"
